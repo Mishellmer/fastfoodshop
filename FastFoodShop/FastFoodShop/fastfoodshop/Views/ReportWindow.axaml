@@ -1,0 +1,57 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:fastfoodshop.ViewModels"
+        x:Class="fastfoodshop.Views.ReportWindow"
+        x:DataType="vm:ReportViewModel"
+        Title="Отчёт о продажах" Width="820" Height="480"
+        WindowStartupLocation="CenterOwner" Background="#FFFFFF">
+
+    <DockPanel>
+        <Border DockPanel.Dock="Top" Background="#EEEEEE" Padding="10" BorderBrush="#CCCCCC" BorderThickness="0,0,0,1">
+            <TextBlock Text="Отчёт о продажах за период" FontSize="16" FontWeight="Bold"/>
+        </Border>
+
+        <Border DockPanel.Dock="Bottom" Background="#F7F7F7" BorderBrush="#CCCCCC" BorderThickness="0,1,0,0" Padding="10,6">
+            <TextBlock Text="{Binding StatusMessage}" TextWrapping="Wrap" Foreground="#333333"/>
+        </Border>
+
+        <StackPanel Margin="20" Spacing="10">
+            <TextBlock Text="Учитываются только заказы со статусом «выполнен»." FontSize="12" Foreground="Gray"/>
+
+            <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,4,0,0">
+                <TextBlock Text="С даты:" VerticalAlignment="Center"/>
+                <CalendarDatePicker SelectedDate="{Binding From, Mode=TwoWay}" Width="180"/>
+
+                <TextBlock Text="По дату:" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <CalendarDatePicker SelectedDate="{Binding To, Mode=TwoWay}" Width="180"/>
+
+                <Button Content="Сформировать" Command="{Binding GenerateCommand}" Height="34" Padding="18,0"
+                        Margin="10,0,0,0" Background="#0078D7" Foreground="White" FontWeight="Bold"/>
+            </StackPanel>
+
+            <Grid ColumnDefinitions="*,*,*" Margin="0,24,0,0">
+                <Border Grid.Column="0" BorderBrush="#CCCCCC" BorderThickness="1" Padding="20" Margin="0,0,8,0">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Выполненных заказов" FontSize="13" Foreground="Gray" TextWrapping="Wrap"/>
+                        <TextBlock Text="{Binding OrderCount}" FontSize="34" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="1" BorderBrush="#CCCCCC" BorderThickness="1" Padding="20" Margin="4,0">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Выручка" FontSize="13" Foreground="Gray"/>
+                        <TextBlock Text="{Binding TotalRevenue, StringFormat='{}{0:N2} руб.'}" FontSize="28"
+                                   FontWeight="Bold" Foreground="#008000"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="2" BorderBrush="#CCCCCC" BorderThickness="1" Padding="20" Margin="8,0,0,0">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Средний чек" FontSize="13" Foreground="Gray"/>
+                        <TextBlock Text="{Binding AverageCheck, StringFormat='{}{0:N2} руб.'}" FontSize="28" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </StackPanel>
+    </DockPanel>
+</Window>

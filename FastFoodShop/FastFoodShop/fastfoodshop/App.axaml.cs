@@ -1,0 +1,26 @@
+using Avalonia;
+using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Markup.Xaml;
+using fastfoodshop.ViewModels;
+using fastfoodshop.Views;
+
+namespace fastfoodshop;
+
+public partial class App : Application
+{
+    public override void Initialize()
+    {
+        AvaloniaXamlLoader.Load(this);
+    }
+
+    public override void OnFrameworkInitializationCompleted()
+    {
+        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        {
+            // Запускаем окно авторизации
+            desktop.MainWindow = new LoginWindow();
+        }
+
+        base.OnFrameworkInitializationCompleted();
+    }
+}

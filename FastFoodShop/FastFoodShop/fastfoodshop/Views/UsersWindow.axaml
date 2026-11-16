@@ -1,0 +1,98 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:fastfoodshop.ViewModels"
+        x:Class="fastfoodshop.Views.UsersWindow"
+        x:DataType="vm:UsersViewModel"
+        Title="Управление пользователями" Width="1000" Height="660"
+        WindowStartupLocation="CenterOwner" Background="#FFFFFF">
+
+    <DockPanel>
+        <Border DockPanel.Dock="Top" Background="#EEEEEE" Padding="10" BorderBrush="#CCCCCC" BorderThickness="0,0,0,1">
+            <Grid ColumnDefinitions="*,Auto">
+                <TextBlock Text="Управление учётными записями и ролями" FontSize="16" FontWeight="Bold"
+                           VerticalAlignment="Center"/>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8">
+                    <Button Content="Новый сотрудник" Command="{Binding NewCommand}" Padding="14,4"/>
+                    <Button Content="Обновить" Command="{Binding RefreshCommand}" Padding="14,4"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border DockPanel.Dock="Bottom" Background="#F7F7F7" BorderBrush="#CCCCCC" BorderThickness="0,1,0,0" Padding="10,6">
+            <TextBlock Text="{Binding StatusMessage}" TextWrapping="Wrap" Foreground="#333333"/>
+        </Border>
+
+        <Grid Margin="15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" BorderBrush="#CCCCCC" BorderThickness="1" Padding="10" Margin="0,0,15,0">
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Top" Text="Сотрудники" FontSize="16" FontWeight="Bold" Margin="0,0,0,8"/>
+                    <ListBox ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedEmployee, Mode=TwoWay}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <StackPanel Spacing="2">
+                                        <TextBlock Text="{Binding FullNameWithMiddleName}" FontWeight="SemiBold"/>
+                                        <StackPanel Orientation="Horizontal" Spacing="8">
+                                            <TextBlock Text="{Binding Login}" Foreground="Gray" FontSize="12"/>
+                                            <TextBlock Text="{Binding Role.RoleName}" Foreground="#0078D7" FontSize="12"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </DockPanel>
+            </Border>
+
+            <Border Grid.Column="1" BorderBrush="#CCCCCC" BorderThickness="1" Padding="12">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Spacing="6">
+                    <TextBlock Text="Карточка сотрудника" FontSize="16" FontWeight="Bold" Margin="0,0,0,8"/>
+
+                    <TextBlock Text="Фамилия:" FontSize="12"/>
+                    <TextBox Text="{Binding LastName, Mode=TwoWay}"/>
+
+                    <TextBlock Text="Имя:" FontSize="12" Margin="0,4,0,0"/>
+                    <TextBox Text="{Binding FirstName, Mode=TwoWay}"/>
+
+                    <TextBlock Text="Отчество:" FontSize="12" Margin="0,4,0,0"/>
+                    <TextBox Text="{Binding MiddleName, Mode=TwoWay}"/>
+
+                    <TextBlock Text="Логин:" FontSize="12" Margin="0,4,0,0"/>
+                    <TextBox Text="{Binding Login, Mode=TwoWay}"/>
+
+                    <TextBlock Text="Пароль:" FontSize="12" Margin="0,4,0,0"/>
+                    <TextBox Text="{Binding Password, Mode=TwoWay}" PasswordChar="●"
+                             PlaceholderText="Новый пароль (пусто — не менять)"/>
+
+                    <TextBlock Text="Роль:" FontSize="12" Margin="0,4,0,0"/>
+                    <ComboBox ItemsSource="{Binding Roles}" SelectedItem="{Binding SelectedRole, Mode=TwoWay}"
+                              HorizontalAlignment="Stretch">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding RoleName}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <Grid ColumnDefinitions="*,*" Margin="0,14,0,0">
+                        <Button Content="Добавить" Command="{Binding AddCommand}" Height="36" Margin="0,0,5,0"/>
+                        <Button Grid.Column="1" Content="Сохранить" Command="{Binding SaveCommand}" Height="36"
+                                Margin="5,0,0,0" Background="#0078D7" Foreground="White"/>
+                    </Grid>
+
+                    <Button Content="Удалить сотрудника" Command="{Binding DeleteCommand}" Margin="0,8,0,0"/>
+
+                    <TextBlock Text="Пароли хранятся в виде хеша BCrypt. Сотрудника, оформившего заказы, удалить нельзя."
+                               FontSize="11" Foreground="Gray" TextWrapping="Wrap" Margin="0,12,0,0"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+    </DockPanel>
+</Window>

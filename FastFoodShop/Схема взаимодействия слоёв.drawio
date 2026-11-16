@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Страница-1" id="-MzKOMwTtjwp5tsOSkkt">
+    <mxGraphModel dx="1317" dy="1964" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="iM7WXDPgA4b_Wz4amdWL-7" edge="1" parent="1" source="iM7WXDPgA4b_Wz4amdWL-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="iM7WXDPgA4b_Wz4amdWL-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iM7WXDPgA4b_Wz4amdWL-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;verticalAlign=top;" value="Интерфейс пользователя (Avalonia)" vertex="1">
+          <mxGeometry height="70" width="230" x="330" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="iM7WXDPgA4b_Wz4amdWL-8" edge="1" parent="1" source="iM7WXDPgA4b_Wz4amdWL-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="iM7WXDPgA4b_Wz4amdWL-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iM7WXDPgA4b_Wz4amdWL-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;verticalAlign=top;" value="Логика окон (ViewModel)" vertex="1">
+          <mxGeometry height="70" width="230" x="330" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="iM7WXDPgA4b_Wz4amdWL-9" edge="1" parent="1" source="iM7WXDPgA4b_Wz4amdWL-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="iM7WXDPgA4b_Wz4amdWL-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iM7WXDPgA4b_Wz4amdWL-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;verticalAlign=top;" value="Бизнес-логика (Сервисы)" vertex="1">
+          <mxGeometry height="70" width="230" x="330" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="iM7WXDPgA4b_Wz4amdWL-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;verticalAlign=top;" value="Доступ к данным (EF Core Context)" vertex="1">
+          <mxGeometry height="70" width="230" x="330" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="iM7WXDPgA4b_Wz4amdWL-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="База данных" vertex="1">
+          <mxGeometry height="30" width="90" x="400" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="iM7WXDPgA4b_Wz4amdWL-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Расчет скидок и стоимости" vertex="1">
+          <mxGeometry height="30" width="90" x="340" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="iM7WXDPgA4b_Wz4amdWL-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Оформление заказа" vertex="1">
+          <mxGeometry height="30" width="90" x="460" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="iM7WXDPgA4b_Wz4amdWL-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Окно оформления заказа&amp;nbsp;" vertex="1">
+          <mxGeometry height="30" width="170" x="360" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="iM7WXDPgA4b_Wz4amdWL-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Ввод данных" vertex="1">
+          <mxGeometry height="30" width="90" x="400" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="iM7WXDPgA4b_Wz4amdWL-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=1" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;font style=&quot;&quot;&gt;Архитектура ИС&amp;nbsp;&lt;/font&gt;&lt;font style=&quot;color: light-dark(rgb(12, 21, 22), rgb(214, 222, 223)); font-family: Ubuntu, sans-serif; text-align: start;&quot;&gt;«&lt;/font&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(#000000, var(--ge-light-color, #ffffff));&quot;&gt;Ресторан быстрого питания&lt;/span&gt;&lt;/font&gt;&lt;span style=&quot;font-size: 16px; background-color: light-dark(rgb(255, 255, 255), rgb(18, 18, 18)); color: light-dark(rgb(12, 21, 22), rgb(214, 222, 223)); font-family: Ubuntu, sans-serif; text-align: start;&quot;&gt;»&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="255" x="317.5" y="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
