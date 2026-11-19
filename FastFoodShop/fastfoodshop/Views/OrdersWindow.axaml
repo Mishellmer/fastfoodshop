@@ -1,0 +1,66 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:fastfoodshop.ViewModels"
+        x:Class="fastfoodshop.Views.OrdersWindow"
+        x:DataType="vm:OrdersViewModel"
+        Title="История заказов" Width="980" Height="620"
+        WindowStartupLocation="CenterOwner" Background="#FFFFFF">
+
+    <DockPanel>
+        <Border DockPanel.Dock="Top" Background="#EEEEEE" Padding="10" BorderBrush="#CCCCCC" BorderThickness="0,0,0,1">
+            <Grid ColumnDefinitions="*,Auto">
+                <TextBlock Text="История заказов" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8">
+                    <Button Content="Закрыть заказ" Command="{Binding CloseOrderCommand}" Background="#0078D7"
+                            Foreground="White" Padding="14,4"/>
+                    <Button Content="Отменить заказ" Command="{Binding CancelOrderCommand}" Padding="14,4"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border DockPanel.Dock="Bottom" Background="#F7F7F7" BorderBrush="#CCCCCC" BorderThickness="0,1,0,0" Padding="10,6">
+            <TextBlock Text="{Binding StatusMessage}" TextWrapping="Wrap" Foreground="#333333"/>
+        </Border>
+
+        <Grid Margin="15" RowDefinitions="Auto,Auto,*">
+            <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,0,0,10">
+                <TextBlock Text="Номер заказа:" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding OrderNumberText, Mode=TwoWay}" Width="110" PlaceholderText="например, 12"/>
+
+                <TextBlock Text="С даты:" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <CalendarDatePicker SelectedDate="{Binding From, Mode=TwoWay}" Width="170"/>
+
+                <TextBlock Text="По дату:" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <CalendarDatePicker SelectedDate="{Binding To, Mode=TwoWay}" Width="170"/>
+
+                <Button Content="Найти" Command="{Binding SearchCommand}" Height="34" Padding="18,0"
+                        Background="#0078D7" Foreground="White" FontWeight="Bold"/>
+            </StackPanel>
+
+            <Grid Grid.Row="1" ColumnDefinitions="80,150,*,120,110" Margin="10,0,10,6">
+                <TextBlock Text="№" FontWeight="Bold" FontSize="12"/>
+                <TextBlock Grid.Column="1" Text="Дата и время" FontWeight="Bold" FontSize="12"/>
+                <TextBlock Grid.Column="2" Text="Клиент" FontWeight="Bold" FontSize="12"/>
+                <TextBlock Grid.Column="3" Text="Сумма" FontWeight="Bold" FontSize="12" HorizontalAlignment="Right"/>
+                <TextBlock Grid.Column="4" Text="Статус" FontWeight="Bold" FontSize="12" HorizontalAlignment="Right"/>
+            </Grid>
+
+            <Border Grid.Row="2" BorderBrush="#CCCCCC" BorderThickness="1" Padding="4">
+                <ListBox ItemsSource="{Binding Orders}" SelectedItem="{Binding SelectedOrder, Mode=TwoWay}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="80,150,*,120,110">
+                                <TextBlock Text="{Binding OrderId, StringFormat='№{0}'}"/>
+                                <TextBlock Grid.Column="1" Text="{Binding OrderDateText}"/>
+                                <TextBlock Grid.Column="2" Text="{Binding ClientName}" TextTrimming="CharacterEllipsis"/>
+                                <TextBlock Grid.Column="3" Text="{Binding TotalSum, StringFormat='{}{0:N2} руб.'}"
+                                           HorizontalAlignment="Right"/>
+                                <TextBlock Grid.Column="4" Text="{Binding Status}" HorizontalAlignment="Right"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Border>
+        </Grid>
+    </DockPanel>
+</Window>
